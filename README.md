@@ -71,8 +71,8 @@ Open index.html in your browser. Your expenses will now automatically sync to yo
 
 **Backend & Storage**
 
-*Firebase (Firestore / Realtime Database)
+* Firebase (Firestore / Realtime Database)
 
 **Data Visualization**
 
-*HTML Canvas / JS Charting Integration
+* HTML Canvas / JS Charting Integration
