@@ -4,7 +4,7 @@ import { getFirestore, collection, addDoc, getDocs, query, orderBy, deleteDoc, d
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-storage.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDVXb3gnVKm-JguPCsWiFQ8IcM9VQsQveo",
+    apiKey: "Give Your own API",
     authDomain: "expensetracker-85a50.firebaseapp.com",
     projectId: "expensetracker-85a50",
     storageBucket: "expensetracker-85a50.firebasestorage.app",
