@@ -49,7 +49,8 @@ To run this project locally and enable cloud storage, you will need to connect i
 * Open the script.js (or firebase-config.js) file.
 * Locate the Firebase configuration object and replace the placeholder values with your actual Firebase API keys:
 
-JavaScript
+**JavaScript**
+```bash
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
   authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
