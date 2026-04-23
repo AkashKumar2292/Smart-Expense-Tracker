@@ -38,3 +38,41 @@ To run this project locally and enable cloud storage, you will need to connect i
    ```bash
    git clone [https://github.com/your-username/expense-tracker.git](https://github.com/your-username/expense-tracker.git)
    cd expense-tracker
+
+2. Create a Firebase Project:
+
+* Go to the Firebase Console and create a new project.
+* Enable Firestore Database (or Realtime Database) and set the rules to allow read/write access.
+
+3. Add Your Firebase Config:
+
+* Open the script.js (or firebase-config.js) file.
+* Locate the Firebase configuration object and replace the placeholder values with your actual Firebase API keys:
+
+JavaScript
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+4. Launch the App:
+Open index.html in your browser. Your expenses will now automatically sync to your Firebase database!
+
+### 🛠 Tech Stack
+**Frontend**
+
+* HTML5
+* CSS3
+* Vanilla JavaScript (ES6)
+
+**Backend & Storage**
+
+*Firebase (Firestore / Realtime Database)
+
+**Data Visualization**
+
+*HTML Canvas / JS Charting Integration
