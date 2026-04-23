@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="form-container">
+
+            <form id="loginForm" class="active-form">
+                <h2>Welcome Back</h2>
+                <p style="color: #6b7280; margin-bottom: 1.5rem; font-size: 0.9rem;">Please enter your details to sign in.</p>
+                
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" id="loginEmail" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" class="form-input" id="loginPassword" placeholder="Enter your password" required>
+                        <i class="fas fa-eye toggle-password" id="toggleLoginPassword"></i>
+                    </div>
+                </div>
+                
+                <a href="#" id="forgotPassword" class="forgot-password">Forgot Password?</a>
+                
+                <button type="submit" class="btn btn-primary">Sign In</button>
+                
+                <p class="form-switch-text">Don't have an account? <a href="#" id="showRegister">Sign up</a></p>
+            </form>
+
+            <form id="registerForm">
+                <h2>Create an Account</h2>
+                <p style="color: #6b7280; margin-bottom: 1.5rem; font-size: 0.9rem;">Join us to start tracking your expenses.</p>
+                
+                <div class="photo-upload-container">
+                    <label class="photo-preview" id="photoPreview" for="profilePhotoInput">
+                        <i class="fas fa-camera" style="font-size: 1.5rem; color: #9ca3af;"></i>
+                    </label>
+                    <label class="photo-upload-btn" for="profilePhotoInput">
+                        Choose Profile Photo
+                    </label>
+                    <input type="file" id="profilePhotoInput" accept="image/*" style="display: none;">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" id="regName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" id="regEmail" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" class="form-input" id="regPassword" placeholder="Create a password (min 6 chars)" required>
+                        <i class="fas fa-eye toggle-password" id="toggleRegPassword"></i>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Create Account</button>
+                
+                <p class="form-switch-text">Already have an account? <a href="#" id="showLogin">Sign in</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="login.js"></script>
+</body>
+</html>

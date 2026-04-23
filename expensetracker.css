@@ -1,0 +1,969 @@
+/* ==========================================================================
+   CSS Variables & Theming
+   ========================================================================== */
+:root {
+    --bg-color: #f3f4f6;
+    --card-bg: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #fbbf24;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --modal-overlay: rgba(0, 0, 0, 0.5);
+    --input-bg: #ffffff;
+}
+
+body.dark-theme {
+    --bg-color: #111827;
+    --card-bg: #1f2937;
+    --text-main: #f9fafb;
+    --text-muted: #9ca3af;
+    --border-color: #374151;
+    --primary: #3b82f6;
+    --primary-hover: #60a5fa;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --modal-overlay: rgba(0, 0, 0, 0.7);
+    --input-bg: #374151;
+    color-scheme: dark; 
+}
+
+/* ==========================================================================
+   Custom Scrollbar Styling
+   ========================================================================== */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+}
+
+body.dark-theme * {
+    scrollbar-color: #4b5563 transparent;
+}
+
+::-webkit-scrollbar {
+    width: 6px;  
+    height: 6px; 
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; 
+}
+
+body.dark-theme ::-webkit-scrollbar-thumb {
+    background: #4b5563; 
+}
+
+body.dark-theme ::-webkit-scrollbar-thumb:hover {
+    background: #6b7280; 
+}
+
+/* ==========================================================================
+   Base Reset
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--card-bg);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+}
+
+.profile-menu-container {
+    position: relative;
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid var(--primary);
+    object-fit: cover;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    box-shadow: var(--card-shadow);
+    width: 200px;
+    display: none;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.profile-dropdown.show {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    color: var(--text-main);
+    font-size: 0.9rem;
+}
+
+.dropdown-item:hover {
+    background: var(--border-color);
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 0.25rem 0;
+}
+
+.text-danger {
+    color: var(--danger);
+}
+
+/* ==========================================================================
+   Main Layout & Cards
+   ========================================================================== */
+.main-content {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Instant toggle for expandable contents */
+.expandable-content {
+    display: none;
+}
+
+.card-summary {
+    width: 100%; 
+}
+
+/* Mobile layout expansion (Vertical) */
+@media (max-width: 991px) {
+    .is-expanded .expandable-content {
+        display: block;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border-color);
+    }
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.card-menu {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.card-menu:hover {
+    background: var(--border-color);
+}
+
+/* ==========================================================================
+   Amounts & Statistics
+   ========================================================================== */
+.amount {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.change {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--success);
+    background: rgba(16, 185, 129, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    width: fit-content;
+}
+
+.change2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--danger);
+    background: rgba(239, 68, 68, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    width: fit-content;
+}
+
+.period-amounts {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.period-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.25rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   Color Bars & Lists
+   ========================================================================== */
+.color-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: var(--border-color);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.expense-categories {
+    list-style: none;
+    max-height: 175px; 
+    overflow-y: auto;
+    padding-right: 0.5rem; 
+}
+
+.expense-category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.category-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.category-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+/* ==========================================================================
+   Budget Card Special Styling
+   ========================================================================== */
+.my-card {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+}
+
+.spending-limit {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.progress-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* Fix for the Savings Comparison Dropdown Options */
+#savingsCompare1 option, 
+#savingsCompare2 option {
+    background-color: var(--card-bg);
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   Charts Section
+   ========================================================================== */
+.chart-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.chart-section .card {
+    height: 440px !important;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bar Chart */
+.chart-container {
+    flex-grow: 1;
+    height: auto; 
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-top: 1rem;
+    gap: 0.5rem;
+}
+
+.chart-bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    flex: 1;
+    position: relative;
+}
+
+.bar-group-label {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.chart-tooltip {
+    position: absolute;
+    background: var(--text-main);
+    color: var(--bg-color);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 10;
+    width: max-content;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.chart-bar-group:hover .chart-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tooltip-month { 
+    font-weight: bold; 
+    margin-bottom: 0.25rem; 
+    border-bottom: 1px solid rgba(255,255,255,0.2); 
+    padding-bottom: 0.25rem; 
+}
+
+.tooltip-income { 
+    color: #34d399; 
+    margin-bottom: 0.1rem; 
+}
+
+.tooltip-expense { 
+    color: #f87171; 
+}
+
+/* Donut Chart */
+.expense-chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.donut-chart {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: conic-gradient(var(--border-color) 0% 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.donut-inner {
+    width: 140px;
+    height: 140px;
+    background-color: var(--card-bg);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.donut-total {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.donut-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.expense-legends {
+    width: 100%;
+    flex-grow: 1; 
+    overflow-y: auto; 
+    padding-right: 0.5rem;
+}
+
+.legend-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    margin-right: 0.5rem;
+}
+
+/* ==========================================================================
+   Transactions Table
+   ========================================================================== */
+.transactions-section {
+    margin-top: 1.5rem;
+}
+
+.table-container {
+    overflow-x: auto;
+    max-height: 450px; 
+    overflow-y: auto;
+    box-shadow: inset 0 -10px 10px -10px rgba(0,0,0,0.05);
+}
+
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.transactions-table th, 
+.transactions-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.transactions-table th {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.875rem;
+    position: sticky;
+    top: 0;
+    background-color: var(--card-bg);
+    z-index: 10;
+    box-shadow: 0 1px 0 var(--border-color);
+}
+
+.sortable-header {
+    cursor: pointer;
+}
+
+.sortable-header:hover {
+    color: var(--primary);
+}
+
+.status-success {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.25rem;
+}
+
+.action-btn:hover {
+    color: var(--danger);
+}
+
+/* ==========================================================================
+   Forms, Filters & Inputs
+   ========================================================================== */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.form-input, 
+.form-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    background-color: var(--input-bg);
+    color: var(--text-main);
+    outline: none;
+}
+
+.form-input:focus, 
+.form-select:focus {
+    border-color: var(--primary);
+}
+
+/* Hide Native Number Input Arrows */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inline-select {
+    width: auto;
+    padding: 0.4rem 2rem 0.4rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--border-color);
+    color: var(--text-main);
+}
+
+.toggle-container {
+    display: inline-flex;
+    background: var(--border-color);
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+}
+
+.toggle-tab {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: transparent;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.toggle-tab.active {
+    background: var(--card-bg);
+    color: var(--primary);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.filter-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    box-shadow: var(--card-shadow);
+    padding: 1rem;
+    width: 250px;
+    display: none;
+    z-index: 50;
+    margin-top: 0.5rem;
+}
+
+.filter-dropdown.show {
+    display: block;
+}
+
+.filter-btn {
+    background: var(--border-color);
+    color: var(--text-main);
+    border: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.active-filter {
+    background: var(--primary) !important;
+    color: white !important;
+}
+
+/* ==========================================================================
+   Modals & FABs
+   ========================================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: var(--modal-overlay);
+    z-index: 2000;
+    backdrop-filter: blur(4px);
+}
+
+/* Center modal using flexbox when active */
+.modal[style*="display: block"] {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    width: 90%;
+    max-width: 500px;
+    margin: 0;
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-body { 
+    padding: 1.5rem; 
+}
+
+.modal-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.close-btn {
+    background: none; 
+    border: none; 
+    font-size: 1.25rem;
+    color: var(--text-muted); 
+    cursor: pointer;
+}
+
+.add-buttons {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 100;
+}
+
+.fab {
+    width: 56px; 
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+.fab-income { 
+    background-color: var(--success); 
+}
+
+.fab-expense { 
+    background-color: var(--danger); 
+}
+
+.clickable-card {
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   Grid System & Expansion Logic (Instant Grid Re-flow)
+   ========================================================================== */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+/* Desktop Grid Layout */
+@media (min-width: 992px) {
+    
+    .dashboard-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.75fr) !important;
+        grid-template-rows: auto !important;
+        align-items: stretch;
+    }
+
+    .dashboard-grid #incomeCard,
+    .dashboard-grid #expenseCard {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        height: auto !important; 
+        flex-direction: column;
+    }
+
+    .dashboard-grid #budgetCard {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        height: auto !important;
+    }
+
+    /* --- THE EXPANDED STATE --- */
+    
+    .dashboard-grid.has-expanded-card {
+        grid-template-rows: auto auto !important;
+    }
+
+    .dashboard-grid.has-expanded-card #incomeCard {
+        grid-column: 1 / span 2 !important;
+        grid-row: 1 !important;
+        height: 260px !important;
+        flex-direction: row;
+    }
+
+    .dashboard-grid.has-expanded-card #expenseCard {
+        grid-column: 1 / span 2 !important;
+        grid-row: 2 !important;
+        height: 260px !important;
+        flex-direction: row;
+    }
+
+    .dashboard-grid.has-expanded-card #budgetCard {
+        grid-column: 3 !important;
+        grid-row: 1 / span 2 !important;
+        height: 100% !important;
+    }
+
+    .dashboard-grid.has-expanded-card #incomeCard.is-expanded .card-summary,
+    .dashboard-grid.has-expanded-card #expenseCard.is-expanded .card-summary {
+        flex: 1;
+        padding-right: 2rem;
+    }
+
+    .dashboard-grid.has-expanded-card #incomeCard.is-expanded .expandable-content,
+    .dashboard-grid.has-expanded-card #expenseCard.is-expanded .expandable-content {
+        display: flex; 
+        flex: 1;
+        padding-left: 2rem;
+        border-left: 1px solid var(--border-color);
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .dashboard-grid.has-expanded-card #budgetCard.is-expanded .budget-expanded-tools {
+        display: block !important; 
+    }
+
+    .chart-section {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+@media (max-width: 991px) {
+    .chart-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   Full-Screen Chart Focus Mode
+   ========================================================================== */
+body.fullscreen-active::before {
+    content: '';
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background: var(--modal-overlay);
+    z-index: 2999;
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+}
+
+body.fullscreen-active {
+    overflow: hidden;
+}
+
+.card.is-fullscreen {
+    position: fixed !important;
+    top: 5vh !important;
+    left: 5vw !important;
+    width: 90vw !important;
+    height: 90vh !important;
+    z-index: 3000 !important;
+    margin: 0 !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.card.is-fullscreen .chart-container {
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    flex-grow: 1; 
+}
+
+.card.is-fullscreen .close-fullscreen-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 36px;
+    height: 36px;
+    font-size: 1.25rem;
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    z-index: 3001; 
+}
+
+.card.is-fullscreen .close-fullscreen-btn:hover {
+    background: var(--danger);
+    color: white;
+}
+
+.card.is-fullscreen .filters {
+    margin-top: 1rem;
+    margin-right: 3rem;
+}
+
+/* ==========================================================================
+   Category Manager Styles
+   ========================================================================== */
+.category-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.category-list-item:last-child {
+    border-bottom: none;
+}
+
+.category-delete-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.category-delete-btn:hover {
+    color: var(--danger);
+}
