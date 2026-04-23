@@ -49,8 +49,6 @@ To run this project locally and enable cloud storage, you will need to connect i
 * Open the script.js (or firebase-config.js) file.
 * Locate the Firebase configuration object and replace the placeholder values with your actual Firebase API keys:
 
-* **JavaScript**
-```bash
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
   authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
@@ -58,7 +56,7 @@ const firebaseConfig = {
   storageBucket: "YOUR_PROJECT_ID.appspot.com",
   messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
   appId: "YOUR_APP_ID"
-}; ```
+};
 
 4. **Launch the App:**
 Open index.html in your browser. Your expenses will now automatically sync to your Firebase database!
