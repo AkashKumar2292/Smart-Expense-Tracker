@@ -58,7 +58,7 @@ const firebaseConfig = {
   storageBucket: "YOUR_PROJECT_ID.appspot.com",
   messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
   appId: "YOUR_APP_ID"
-};
+}; ```
 
 4. **Launch the App:**
 Open index.html in your browser. Your expenses will now automatically sync to your Firebase database!
