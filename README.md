@@ -2,21 +2,21 @@
 
 **Interactive Personal Finance & Budget Visualization System**
 
-Smart Expense Tracker is a responsive, frontend-based web application that helps users monitor their daily financial habits. The system logs expenses and dynamically renders interactive charts to visualize spending patterns, enabling data-driven budget management without the need for a backend server.
+Smart Expense Tracker is a responsive web application that helps users monitor their daily financial habits. The system logs expenses, syncs data securely to the cloud, and dynamically renders interactive charts to visualize spending patterns, enabling data-driven budget management across multiple devices.
 
 ### ⚙️ How It Works
 
 * User inputs daily transaction details (amount, category, date)
-* Application captures and processes DOM inputs locally
-* Visual charts re-render dynamically to reflect new data
+* Application securely pushes and retrieves data using Firebase
+* Visual charts re-render dynamically in real-time to reflect new data
 * Spending categories are compared instantly for budget analysis
-* Data is managed entirely within the browser for complete privacy
+* Data is stored in the cloud, ensuring your financial tracking is never lost
 
 ### 🧠 Core Features Used
 
 | Feature | Purpose |
 | :--- | :--- |
-| **Transaction Logging** | captures individual expense data points |
+| **Cloud Synchronization** | saves transaction data securely via Firebase |
 | **Dynamic Graphs** | visualizes spending trends over time |
 | **Category Breakdown** | identifies highest expenditure areas |
 | **Responsive UI** | ensures seamless access across mobile and desktop |
@@ -30,11 +30,11 @@ Smart Expense Tracker is a responsive, frontend-based web application that helps
 | 🟡 **Historical Comparison** | current spending plotted against previous trends |
 | 🟢 **Budget Status** | visual indicator of financial health and remaining funds |
 
-### 📲 Local Execution & Usage
+### 🔥 Firebase Configuration & Setup
 
-The application relies entirely on client-side processing, meaning no external APIs or databases are required to view your financial data.
+To run this project locally and enable cloud storage, you will need to connect it to your own Firebase project.
 
-Example usage flow:
-
-```text
-Clone Repository -> Open index.html in browser -> Input Expense -> View Graph Update
+1. **Clone the Repository:**
+   ```bash
+   git clone [https://github.com/your-username/expense-tracker.git](https://github.com/your-username/expense-tracker.git)
+   cd expense-tracker
