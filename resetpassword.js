@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/fireba
 import { getAuth, verifyPasswordResetCode, confirmPasswordReset } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDVXb3gnVKm-JguPCsWiFQ8IcM9VQsQveo", // Using your existing config
+    apiKey: "Give Your own API", // Using your existing config
     authDomain: "expensetracker-85a50.firebaseapp.com",
     projectId: "expensetracker-85a50",
     storageBucket: "expensetracker-85a50.firebasestorage.app",
