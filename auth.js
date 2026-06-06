@@ -2,14 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/fireba
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDVXb3gnVKm-JguPCsWiFQ8IcM9VQsQveo",
-  authDomain: "expensetracker-85a50.firebaseapp.com",
-  projectId: "expensetracker-85a50",
-  storageBucket: "expensetracker-85a50.firebasestorage.app",
-  messagingSenderId: "622489677206",
-  appId: "1:622489677206:web:6c8c52deff322a253c81b7",
-  measurementId: "G-0R6M9MXL9E"
+const firebaseConfig = {"Give Your own API"
 };
 
 const app = initializeApp(firebaseConfig);
