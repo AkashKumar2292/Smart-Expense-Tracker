@@ -4,7 +4,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, se
 import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-storage.js";
 
-const firebaseConfig = {
+const firebaseConfig = {"Give Your own API"
 };
 
 const app = initializeApp(firebaseConfig);
