@@ -5,13 +5,6 @@ import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-storage.js";
 
 const firebaseConfig = {
-    apiKey: "Give Your own API",
-    authDomain: "expensetracker-85a50.firebaseapp.com",
-    projectId: "expensetracker-85a50",
-    storageBucket: "expensetracker-85a50.firebasestorage.app",
-    messagingSenderId: "622489677206",
-    appId: "1:622489677206:web:6c8c52deff322a253c81b7",
-    measurementId: "G-0R6M9MXL9E"
 };
 
 const app = initializeApp(firebaseConfig);
